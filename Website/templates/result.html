@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+    <script src="{{ url_for('static', filename='analysics.js') }}"></script>
+    <script src="{{ url_for('static', filename='reload.js') }}"></script>
+    <script src="{{ url_for('static', filename='togglepopup.js') }}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" async></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/trefoil.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.0/js/lib/beautify.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../static/logo.png">
+</head>
+
+<body>
+    <nav>
+        <div class="logo-container">
+            <a style="text-decoration: none;" href="/">
+                <div class="logo_inner">
+                    <img class="logo" src="../static/logo.png">
+                    <div class="logo-text">
+                        <h2 class="white-color" id="company-logo"> Netsentinel</h2>
+                        <p class="white-color" id="subtitle"> Scan.Detect.Protect</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <ul>
+            <li>
+                <a href="about">About Us</a>
+            </li>
+            <li>
+                <a href="links">Links</a>
+            </li>
+            <li>
+                <a href="contact">Contact Us</a>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </nav>
+    <div class="menubar">
+        <ul>
+            <li>
+                <a href="about">About Us</a>
+            </li>
+            <li>
+                <a href="links">Links</a>
+            </li>
+            <li>
+                <a href="contact">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+    <h1>Analysis Results for <span id="domainName">{{ url_or_ip }}</span></h1>
+    <div id="results">
+        <div class="result-box">
+            <h2>Domain WHOIS</h2>
+            <button class="reload-button" title="Re-fetch Domain WHOIS"
+                onclick="reloadData('/fetch_whois_data', 'whois', load_whois)">↻</button>
+            <button class="info-icon" title="Domain WHOIS" onclick="togglePopup('whoisInfo')">ⓘ</button>
+            <pre id="whois"><div class="centre">
+                <l-trefoil
+                size="40"
+                stroke="4"
+                stroke-length="0.15"
+                bg-opacity="0.1"
+                speed="1.4"
+                color="#50fa7b">
+                </l-trefoil>
+            </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>DNS Data</h2>
+            <button class="reload-button" title="Re-fetch DNS Data"
+                onclick="reloadData('/fetch_dns_data', 'dns', load_dns_data)">↻</button>
+            <button class="info-icon" title="DNS Data" onclick="togglePopup('dnsInfo')">ⓘ</button>
+            <pre id="dns"><div class="centre">
+                <l-trefoil
+                size="40"
+                stroke="4"
+                stroke-length="0.15"
+                bg-opacity="0.1"
+                speed="1.4"
+                color="#50fa7b">
+                </l-trefoil>
+            </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>DNS Records</h2>
+            <button class="reload-button" title="Re-fetch DNS Records"
+                onclick="reloadData('/fetch_dns_records', 'dns-records', load_dns_records)">↻</button>
+            <button class="info-icon" title="DNS Records" onclick="togglePopup('dnsRecordsInfo')">ⓘ</button>
+            <pre id="dns-records">
+                <div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div>
+            </pre>
+        </div>
+        <div class="result-box">
+            <h2>DNSSEC</h2>
+            <button class="reload-button" title="Re-fetch DNSSEC"
+                onclick="reloadData('/fetch_dnssec', 'dnssec', load_dnssec_data)">↻</button>
+            <button class="info-icon" title="DNSSEC" onclick="togglePopup('dnssecInfo')">ⓘ</button>
+            <pre id="dnssec"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <!-- <div class="result-box">
+            <h2>Archives</h2>
+            <button class="reload-button" title="Re-fetch Archives"
+                onclick="reloadData('/fetch_wayback', 'wayback', load_wayback_data)">↻</button>
+            <button class="info-icon" title="Archives" onclick="togglePopup('archivesInfo')">ⓘ</button>
+            <pre id="wayback"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div> -->
+        <div class="result-box">
+            <h2>Carbon Footprint</h2>
+            <button class="reload-button" title="Re-fetch Carbon Footprint"
+                onclick="reloadData('/fetch_carbon_footprint', 'carbon', load_carbon_footprint)">↻</button>
+            <button class="info-icon" title="Carbon Footprint" onclick="togglePopup('carbonInfo')">ⓘ</button>
+            <pre id="carbon"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>TLS <br> Cipher Suites</h2>
+            <button class="reload-button" title="Re-fetch TLS Cipher Suites Data"
+                onclick="reloadData('/fetch_tls_cipher', 'tls-cipher', load_tls_cipher)">↻</button>
+            <button class="info-icon" title="TLS Cipher Suites" onclick="togglePopup('tlsCipherInfo')">ⓘ</button>
+            <pre id="tls-cipher" style="height: 275px;"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>TLS <br>Security Configuration</h2>
+            <button class="reload-button" title="Re-fetch TLS Security Configuration"
+                onclick="reloadData('/fetch_tls_security', 'tls-security', load_tls_security)">↻</button>
+            <button class="info-icon" title="TLS Security Configuration"
+                onclick="togglePopup('tlsSecurityInfo')">ⓘ</button>
+            <pre id="tls-security" style="height: 275px;"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>TLS <br>Handshake Simulation</h2>
+            <button class="reload-button" title="Re-fetch TLS Handshake Data"
+                onclick="reloadData('/fetch_tls_handshake', 'tls-handshake-results', load_tls_handshake_simulation)">↻</button>
+            <button class="info-icon" title="TLS Handshake Data" onclick="togglePopup('tlsHandshakeInfo')">ⓘ</button>
+            <pre id="tls-handshake-results" style="height: 275px;"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Status</h2>
+            <button class="reload-button" title="Re-fetch Status"
+                onclick="reloadData('/fetch_status', 'status', load_status)">↻</button>
+            <button class="info-icon" title="Status" onclick="togglePopup('statusInfo')">ⓘ</button>
+            <pre id="status"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Traceroute</h2>
+            <button class="reload-button" title="Re-fetch Traceroute"
+                onclick="reloadData('/fetch_traceroute', 'traceroute', load_traceroute)">↻</button>
+            <button class="info-icon" title="Traceroute" onclick="togglePopup('tracerouteInfo')">ⓘ</button>
+            <pre id="traceroute"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Blocklists</h2>
+            <button class="reload-button" title="Re-fetch Blocklists"
+                onclick="reloadData('/fetch_blocklist', 'blocklist', load_blocklist)">↻</button>
+            <button class="info-icon" title="Blocklists" onclick="togglePopup('blocklistsInfo')">ⓘ</button>
+            <pre id="blocklist"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Threats</h2>
+            <button class="reload-button" title="Re-fetch Threats"
+                onclick="reloadData('/fetch_threats', 'threats', load_threats)">↻</button>
+            <button class="info-icon" title="Threats" onclick="togglePopup('threatsInfo')">ⓘ</button>
+            <pre id="threats"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Ports</h2>
+            <button class="reload-button" title="Re-fetch Ports"
+                onclick="reloadData('/fetch_port_check', 'ports', load_ports)">↻</button>
+            <button class="info-icon" title="Ports" onclick="togglePopup('openPortsInfo')">ⓘ</button>
+            <pre id="ports"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Pages</h2>
+            <button class="reload-button" title="Re-fetch Pages"
+                onclick="reloadData('/fetch_sitemap', 'sitemaps', load_sitemap)">↻</button>
+            <button class="info-icon" title="Pages" onclick="togglePopup('pagesInfo')">ⓘ</button>
+            <pre id="sitemaps"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Firewall</h2>
+            <button class="reload-button" title="Re-fetch Firewall"
+                onclick="reloadData('/fetch_waf', 'waf', load_waf)">↻</button>
+            <button class="info-icon" title="Firewall" onclick="togglePopup('firewallInfo')">ⓘ</button>
+            <pre id="waf"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Social Tags</h2>
+            <button class="reload-button" title="Re-fetch Social Tags"
+                onclick="reloadData('/fetch_metadata', 'metadata', load_metadata)">↻</button>
+            <button class="info-icon" title="Socila Tags" onclick="togglePopup('socialTagsInfo')">ⓘ</button>
+            <pre id="metadata"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Headers</h2>
+            <button class="reload-button" title="Re-fetch Headers"
+                onclick="reloadData('/fetch_http_headers', 'http-headers', load_http_headers)">↻</button>
+            <button class="info-icon" title="Headers" onclick="togglePopup('headersInfo')">ⓘ</button>
+            <pre id="http-headers"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>HSTS Check</h2>
+            <button class="reload-button" title="Re-fetch HSTS Check"
+                onclick="reloadData('/fetch_hsts', 'hsts', load_hsts)">↻</button>
+            <button class="info-icon" title="HSTS Check" onclick="togglePopup('hstsInfo')">ⓘ</button>
+            <pre id="hsts"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>HTTP Security</h2>
+            <button class="reload-button" title="Re-fetch HTTP Security"
+                onclick="reloadData('/fetch_security_headers', 'security-headers', load_security_headers)">↻</button>
+            <button class="info-icon" title="HTTP Security" onclick="togglePopup('httpSecurityInfo')">ⓘ</button>
+            <pre id="security-headers"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Domain Rank</h2>
+            <button class="reload-button" title="Re-fetch Domain Rank"
+                onclick="reloadData('/fetch_domain_rank', 'domain-rank', load_domain_rank)">↻</button>
+            <button class="info-icon" title="Domain Rank" onclick="togglePopup('domainInfo')">ⓘ</button>
+            <pre id="domain-rank"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Tranco Rank</h2>
+            <button class="reload-button" title="Re-fetch Tranco Rank"
+                onclick="reloadData('/fetch_tranco_rank', 'tranco-rank', load_tranco_rank)">↻</button>
+            <button class="info-icon" title="Tranco Rank" onclick="togglePopup('trancoInfo')">ⓘ</button>
+            <pre id="tranco-rank"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Linked Pages</h2>
+            <button class="reload-button" title="Re-fetch Linked Pages"
+                onclick="reloadData('/fetch_link_analysis', 'all-data', load_link_analysis)">↻</button>
+            <button class="info-icon" title="Link Pages" onclick="togglePopup('linkedPagesInfo')">ⓘ</button>
+            <pre id="all-data"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Mail Services</h2>
+            <button class="reload-button" title="Re-fetch Mail Services"
+                onclick="reloadData('/fetch_mail_server_analysis', 'mail-services', load_mail_server_analysis)">↻</button>
+            <button class="info-icon" title="Mail Services" onclick="togglePopup('mailServicesInfo')">ⓘ</button>
+            <pre id="mail-services"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>SSL Certificate</h2>
+            <button class="reload-button" title="Re-fetch SSL Certificate"
+                onclick="reloadData('/fetch_ssl_certificate', 'ssl', load_ssl_certificate)">↻</button>
+            <button class="info-icon" title="SSL Certificate" onclick="togglePopup('sslInfo')">ⓘ</button>
+            <pre id="ssl"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Redirects</h2>
+            <button class="reload-button" title="Re-fetch Redirects"
+                onclick="reloadData('/fetch_redirects', 'redirects', load_redirects)">↻</button>
+            <button class="info-icon" title="Redirects" onclick="togglePopup('redirectsInfo')">ⓘ</button>
+            <pre id="redirects"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Security TXT Data</h2>
+            <button class="reload-button" title="Re-fetch Security TXT "
+                onclick="reloadData('/fetch_security_txt', 'security-txt', load_security_txt)">↻</button>
+            <button class="info-icon" title="Security TXT" onclick="togglePopup('securityTxtInfo')">ⓘ</button>
+            <pre id="security-txt"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Robots</h2>
+            <button class="reload-button" title="Re-fetch Robots"
+                onclick="reloadData('/fetch_robots_txt', 'robots-txt', load_robots_txt)">↻</button>
+            <button class="info-icon" title="Robotss" onclick="togglePopup('robotsInfo')">ⓘ</button>
+            <pre id="robots-txt"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="result-box">
+            <h2>Screenshot</h2>
+            <button class="reload-button" title="Re-fetch Screenshot"
+                onclick="reloadData('/fetch_screenshot', 'screenshot', load_screenshot)">↻</button>
+            <button class="info-icon" title="Screenshot" onclick="togglePopup('screenshotInfo')">ⓘ</button>
+            <pre id="screenshot"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        </div>
+        <div class="overlay" id="overlay" onclick="togglePopup()"></div>
+        <div class="popup" id="popup">
+            <h3 id="popup-title"></h3>
+            <p id="popup-content"></p>
+            <button class="close-btn" onclick="togglePopup()">Close</button>
+        </div>
+    </div>
+
+    <div class="server_location">
+        <h2>Server Location</h2>
+        <button class="reload-button" title="Re-fetch Server Location"
+            onclick="reloadData('/fetch_server_location', 'server-info', load_server_location)">↻</button>
+        <button class="info-icon" title="Server Info" onclick="togglePopup('server-info')">ⓘ</button>
+        <pre id="server-info"><div class="centre">
+                    <l-trefoil
+                    size="40"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="#50fa7b">
+                    </l-trefoil>
+                </div></pre>
+        <div id="map" style="height: 400px; width: 100%;"></div>
+    </div>
+    <div class="server_location">
+        <h2>Score Metrics</h2>
+        <button class="reload-button" title="Re-fetch Server Score Metrics"
+            onclick="reloadData('/fetch_score_metrics', 'score_metrics', load_score_metrics)">↻</button>
+        <button class="info-icon" title="Score Metrics Info" onclick="togglePopup('score-metrics-info')">ⓘ</button>
+        <pre id="score_metrics"><div class="centre">
+                <l-trefoil
+                size="40"
+                stroke="4"
+                stroke-length="0.15"
+                bg-opacity="0.1"
+                speed="1.4"
+                color="#50fa7b">
+                </l-trefoil>
+            </div></pre>
+        <!-- <div id="score_metrics" style="height: auto; width: 100%;"></div> -->
+    </div>
+    
+    <div class="download">
+        <button class="download-button" onclick="downloadResults()">Download Results</button>
+    </div>
+
+    <script>
+
+        const mobileNav = document.querySelector(".hamburger");
+        const navbar = document.querySelector(".menubar");
+
+        const toggleNav = () => {
+            navbar.classList.toggle("active");
+            mobileNav.classList.toggle("hamburger-active");
+        };
+        mobileNav.addEventListener("click", () => toggleNav());
+    </script>
+</body>
+
+</html>

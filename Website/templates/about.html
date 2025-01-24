@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="../static/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../static/logo.png">
+</head>
+
+<body>
+    <nav>
+        <div class="logo-container">
+            <a style="text-decoration: none;" href="/">
+                <div class="logo_inner">
+                    <img class="logo" src="../static/logo.png">
+                    <div class="logo-text">
+                        <h2 class="white-color" id="company-logo"> Netsentinel</h2>
+                        <p class="white-color" id="subtitle"> Scan.Detect.Protect</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <ul>
+            <li>
+                <a href="about">About Us</a>
+            </li>
+            <li>
+                <a href="links">Links</a>
+            </li>
+            <li>
+                <a href="contact">Contact Us</a>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </nav>
+    <div class="menubar">
+        <ul>
+            <li>
+                <a href="about">About Us</a>
+            </li>
+            <li>
+                <a href="links">Links</a>
+            </li>
+            <li>
+                <a href="contact">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main_container">
+        <header>
+            <h1>About Our Website</h1>
+        </header>
+
+        <div class="container">
+            <section>
+                <h1>About NetSentinel</h1>
+                <p>NetSentinel is your comprehensive solution for web security, analysis, and optimization. Our tagline,
+                    <strong>"Scan, Detect, Protect"</strong>, encapsulates our mission to provide users with the tools
+                    they
+                    need to safeguard their digital assets. With NetSentinel, simply input a URL, and let us perform an
+                    in-depth analysis to uncover a wealth of information.
+                </p>
+
+                <p>Our reports illuminate potential vulnerabilities, existing security measures, and the intricate
+                    connections within a website's architecture. This information is invaluable for optimizing server
+                    responses, configuring redirects, managing cookies, and fine-tuning DNS records.</p>
+
+                <p>Whether you are a developer, system administrator, security researcher, or penetration tester,
+                    NetSentinel is designed to be a pivotal tool in your cybersecurity arsenal.</p>
+
+                <div class="sponsor">
+                    <p>NetSentinel is developed and maintained by <strong>Team NetSentinel</strong>, and is
+                        available
+                        at <strong><a href="https://netsentinel.in">netsentinel.in</a></strong>. Our platform is
+                        deployed on
+                        AWS EC2 for optimal performance and reliability.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Features</h2>
+                <div id="Whois" class="feature">
+                    <h3>1. Domain WHOIS</h3>
+                    <p>
+                        This feature retrieves information about the ownership and registration details of a domain
+                        name. It
+                        provides data such as the registrant's name, contact details, domain creation, and expiration
+                        dates,
+                        and the hosting provider. It helps users identify who is responsible for a domain and its
+                        lifecycle.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Dns" class="feature">
+                    <h3>2. DNS Data & Records</h3>
+                    <p>
+                        DNS (Domain Name System) data provides crucial details about how a domain is mapped to an IP
+                        address. This functionality displays nameservers, IP addresses, and any associated DNS records,
+                        helping users understand how a domain is connected to the internet. It provides a detailed list
+                        of
+                        all DNS records associated with a domain, such as A, AAAA, MX, TXT, and CNAME records. Each of
+                        these
+                        records serves a specific purpose, like mapping a domain to an IP, pointing email traffic, or
+                        verifying ownership for services like email or cloud hosting.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Dnssec" class="feature">
+                    <h3>3. DNSSEC Analysis</h3>
+                    <p>
+                        DNSSEC (DNS Security Extensions) enhances security by adding a layer of protection to DNS
+                        queries.
+                        It verifies that the DNS information hasn't been tampered with, ensuring that users are directed
+                        to
+                        the intended destination. It checks whether DNSSEC is enabled for the domain.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Archives" class="feature">
+                    <h3>4. Archives</h3>
+                    <p>
+                        This feature leverages the Wayback Machine or similar services to show historical snapshots of a
+                        website. Users can view how a site has changed over time, which can be useful for research or
+                        recovering information from an older version of a site.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Carbon" class="feature">
+                    <h3>5. Carbon Footprint</h3>
+                    <p>
+                        This feature estimates the environmental impact of a website, specifically its energy
+                        consumption
+                        and carbon emissions. It helps users understand the sustainability of the website based on data
+                        usage, hosting practices, and traffic.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Cipher" class="feature">
+                    <h3>6. TLS Cipher Suites</h3>
+                    <p>
+                        This feature provides information about the encryption algorithms supported by the domain's
+                        server.
+                        Cipher suites ensure that communication between a browser and the server is secure. The stronger
+                        the
+                        suite, the more secure the encryption.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Handshake" class="feature">
+                    <h3>7. TLS Handshake Simulation</h3>
+                    <p>
+                        This feature tell you what versions of TLS (Transport Layer Security) are supported by the
+                        server.
+                        TLS is a protocol that encrypts data sent over the web. This information helps users ensure that
+                        a
+                        website supports modern security standards.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Security" class="feature">
+                    <h3>8. TLS Security Config</h3>
+                    <p>
+                        This feature checks the overall security configuration of the website's TLS setup, evaluating if
+                        the
+                        server supports modern encryption and blocks outdated protocols that could compromise security.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Status" class="feature">
+                    <h3>9. Status</h3>
+                    <p>
+                        This feature provides users with an overall health check of a website. It indicates whether the
+                        website is online, has any major issues, or is experiencing downtime.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Traceroute" class="feature">
+                    <h3>10. Traceroute</h3>
+                    <p>
+                        This feature traces the path your connection takes from your device to the website's server. It
+                        provides detailed information on the hops (intermediate network points) the data takes and helps
+                        in
+                        diagnosing network issues.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Blocklists" class="feature">
+                    <h3>11. Blocklists</h3>
+                    <p>
+                        This feature checks if the website or its IP address appears on any known blocklists. Blocklists
+                        are
+                        used to flag sites that have been involved in malicious activities such as spam or malware
+                        distribution.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Threats" class="feature">
+                    <h3>12. Threats</h3>
+                    <p>
+                        This feature scans the website against known databases of malicious websites, such as PhishTank
+                        or
+                        URLhaus. It alerts users if the site is involved in phishing, malware distribution, or other
+                        harmful
+                        activities.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Ports" class="feature">
+                    <h3>13. Open Ports</h3>
+                    <p>
+                        Open ports represent entry points to a server. This feature lists the open ports on the
+                        website's
+                        server, which can help in identifying possible vulnerabilities.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Pages" class="feature">
+                    <h3>14. Pages</h3>
+                    <p>
+                        This feature shows the structure of the website, such as internal and external links, and
+                        provides
+                        details on each page. Users can understand how a website is organized and navigate through its
+                        content.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Firewall" class="feature">
+                    <h3>15. Firewall</h3>
+                    <p>
+                        This checks whether a website has a firewall and how well it is configured. A firewall acts as a
+                        barrier to protect the website from unauthorized access or cyber attacks.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Social" class="feature">
+                    <h3>16. Social Tags</h3>
+                    <p>
+                        Social tags show how a website is optimized for social media sharing. These tags affect how
+                        links
+                        appear when shared on platforms like Facebook or Twitter, influencing visibility and engagement.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Headers" class="feature">
+                    <h3>17. Headers</h3>
+                    <p>
+                        This section shows HTTP headers returned by the website’s server. Headers provide metadata about
+                        the
+                        site, such as server information, content type, and security policies, which is useful for
+                        diagnostics and SEO.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Hsts" class="feature">
+                    <h3>18. HSTS Check</h3>
+                    <p>
+                        This feature checks if a website has implemented HTTP Strict Transport Security (HSTS), a policy
+                        that enforces secure HTTPS connections between the user's browser and the website. HSTS ensures
+                        that
+                        all communication is encrypted and prevents attackers from intercepting or tampering with the
+                        data.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Http" class="feature">
+                    <h3>19. HTTP Header</h3>
+                    <p>
+                        This feature checks the HTTP headers for security-related configurations, like HSTS (HTTP Strict
+                        Transport Security) and content security policies. It helps users ensure the site is protected
+                        against attacks such as cross-site scripting (XSS).
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Domain" class="feature">
+                    <h3>20. Domain Rank</h3>
+                    <p>
+                        This feature shows the rank of the domain on the web. Domain rank reflects the website's
+                        authority
+                        and popularity compared to others.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Tranco" class="feature">
+                    <h3>21. Tranco Rank</h3>
+                    <p>
+                        Tranco rank is another form of ranking that compares a domain's traffic and popularity with
+                        others
+                        on the web. This functionality helps users assess how widely visited or influential a website
+                        is.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Linked" class="feature">
+                    <h3>22. Linked Pages</h3>
+                    <p>
+                        This shows all the internal and external pages that are linked to from the main domain. It helps
+                        in
+                        analyzing the flow of a website and its connectivity to other websites.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Mail" class="feature">
+                    <h3>23. Mail Services</h3>
+                    <p>
+                        This feature checks the mail server records for the domain and provides details about the
+                        configured
+                        email services. Users can verify if mail setup is properly configured and secure.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Ssl" class="feature">
+                    <h3>24. SSL Certificate</h3>
+                    <p>
+                        This feature checks whether the website has a valid SSL certificate, which ensures that the
+                        connection is encrypted and secure. It also provides details about the issuer, expiration date,
+                        and
+                        security level.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Redirects" class="feature">
+                    <h3>25. Redirects</h3>
+                    <p>
+                        This feature shows if the domain redirects users to a different URL. It helps users understand
+                        how
+                        traffic is being routed and whether the redirects are secure or potentially malicious.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Txt" class="feature">
+                    <h3>26. Security TXT</h3>
+                    <p>
+                        Security.txt is a file that websites use to provide information on how to report security
+                        issues.
+                        This feature checks whether this file is present and provides details on how to contact the
+                        website's security team.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Robots" class="feature">
+                    <h3>27. Robots TXT</h3>
+                    <p>
+                        This feature checks for the presence of a robots.txt file, which informs search engines about
+                        which
+                        pages should or should not be indexed. It helps users understand how a website interacts with
+                        search
+                        engine crawlers.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Screenshot" class="feature">
+                    <h3>28. Screenshot</h3>
+                    <p>
+                        This feature checks for the presence of a robots.txt file, which informs search engines about
+                        which
+                        pages should or should not be indexed. It helps users understand how a website interacts with
+                        search
+                        engine crawlers.
+                    </p>
+                    <hr class="divider">
+                </div>
+                <div id="Server" class="feature">
+                    <h3>29. Server Location</h3>
+                    <p>
+                        This feature checks for the presence of a robots.txt file, which informs search engines about
+                        which
+                        pages should or should not be indexed. It helps users understand how a website interacts with
+                        search
+                        engine crawlers.
+                    </p>
+                    <hr class="divider">
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const mobileNav = document.querySelector(".hamburger");
+        const navbar = document.querySelector(".menubar");
+
+        const toggleNav = () => {
+            navbar.classList.toggle("active");
+            mobileNav.classList.toggle("hamburger-active");
+        };
+        mobileNav.addEventListener("click", () => toggleNav());
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const functionName = params.get('function');
+
+            if (functionName === 'archives') {
+                document.getElementById("Archives").scrollIntoView();
+            }
+            else if (functionName === 'blocklists') {
+                document.getElementById("Blocklists").scrollIntoView();
+            }
+            else if (functionName === 'carbon') {
+                document.getElementById("Carbon").scrollIntoView();
+            }
+            else if (functionName === 'dns') {
+                document.getElementById("Dns").scrollIntoView();
+            }
+            else if (functionName === 'dnssec') {
+                document.getElementById("Dnssec").scrollIntoView();
+            }
+            else if (functionName === 'domain') {
+                document.getElementById("Domain").scrollIntoView();
+            }
+            else if (functionName === 'firewall') {
+                document.getElementById("Firewall").scrollIntoView();
+            }
+            else if (functionName === 'headers') {
+                document.getElementById("Headers").scrollIntoView();
+            }
+            else if (functionName === 'hsts') {
+                document.getElementById("Hsts").scrollIntoView();
+            }
+            else if (functionName === 'http') {
+                document.getElementById("Http").scrollIntoView();
+            }
+            else if (functionName === 'linked') {
+                document.getElementById("Linked").scrollIntoView();
+            }
+            else if (functionName === 'mail') {
+                document.getElementById("Mail").scrollIntoView();
+            }
+            else if (functionName === 'ports') {
+                document.getElementById("Ports").scrollIntoView();
+            }
+            else if (functionName === 'pages') {
+                document.getElementById("Pages").scrollIntoView();
+            }
+            else if (functionName === 'redirects') {
+                document.getElementById("Redirects").scrollIntoView();
+            }
+            else if (functionName === 'robots') {
+                document.getElementById("Robots").scrollIntoView();
+            }
+            else if (functionName === 'screenshot') {
+                document.getElementById("Screenshot").scrollIntoView();
+            }
+            else if (functionName === 'txt') {
+                document.getElementById("Txt").scrollIntoView();
+            }
+            else if (functionName === 'server') {
+                document.getElementById("Server").scrollIntoView();
+            }
+            else if (functionName === 'social') {
+                document.getElementById("Social").scrollIntoView();
+            }
+            else if (functionName === 'ssl') {
+                document.getElementById("Ssl").scrollIntoView();
+            }
+            else if (functionName === 'status') {
+                document.getElementById("Status").scrollIntoView();
+            }
+            else if (functionName === 'threats') {
+                document.getElementById("Threats").scrollIntoView();
+            }
+            else if (functionName === 'cipher') {
+                document.getElementById("Cipher").scrollIntoView();
+            }
+            else if (functionName === 'handshake') {
+                document.getElementById("Handshake").scrollIntoView();
+            }
+            else if (functionName === 'security') {
+                document.getElementById("Security").scrollIntoView();
+            }
+            else if (functionName === 'traceroute') {
+                document.getElementById("Traceroute").scrollIntoView();
+            }
+            else if (functionName === 'tranco') {
+                document.getElementById("Tranco").scrollIntoView();
+            }
+            else if (functionName === 'whois') {
+                document.getElementById("Whois").scrollIntoView();
+            }
+        });
+
+    </script>
+</body>
+
+</html>

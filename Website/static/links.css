@@ -1,0 +1,360 @@
+/* Reset some basic elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Font import for a futuristic look */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+
+body {
+    background: linear-gradient(135deg, #433878, #7e60bf, #1a0033);
+    font-family: "Chakra Petch", sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.main_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Footer styling */
+.footer {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 3rem 1rem;
+    margin-top: 2rem;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 30px rgba(0, 255, 204, 0.4);
+}
+
+.footer h4 {
+    font-size: 2.5rem;
+    color: #00ffcc;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.footercon {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.list1 {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 1rem;
+    flex: 1;
+    min-width: 150px;
+    text-align: left;
+}
+
+.list1 li {
+    margin: 0.8rem 0;
+}
+
+.list1 a {
+    color: #00ffcc;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.list1 a:hover {
+    color: #00ff99;
+    /* Hover color */
+}
+
+.social-icons {
+    margin-top: 2rem;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #00ffcc;
+    font-size: 1.5rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #00ff99;
+    /* Hover color */
+}
+
+.copyright {
+    margin-top: 3rem;
+    font-size: 1rem;
+    color: #777;
+    /* Light gray for copyright text */
+}
+
+@media screen and (max-width: 768px) {
+    .footercon {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.logo {
+    width: 19%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.logo_inner {
+    display: flex;
+    flex-direction: row;
+    margin: 40px 0 0 43px;
+}
+
+.white-color {
+    color: #ffffff;
+    margin: 0;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+#company-logo {
+    font-size: 40px;
+    font-weight: 100;
+}
+
+#subtitle {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 1024px) {
+    .logo {
+        width: 16%;
+    }
+
+    #company-logo {
+        font-size: 35px;
+        font-weight: 100;
+    }
+
+    #subtitle {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .logo {
+        width: 14%;
+    }
+
+    #company-logo {
+        font-size: 25px;
+        font-weight: 100;
+    }
+
+    #subtitle {
+        font-size: 10px;
+    }
+
+    .logo_inner {
+        margin: 35px 0 0 35px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .logo {
+        width: 14%;
+    }
+
+    #company-logo {
+        font-size: 25px;
+        font-weight: 100;
+    }
+
+    #subtitle {
+        font-size: 10px;
+    }
+
+    .logo_inner {
+        margin: 20px 0 0 20px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .logo {
+        width: 16%;
+    }
+}
+
+nav {
+    padding: 5px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 1;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+}
+
+nav .logo img {
+    height: 25px;
+    width: auto;
+    margin-right: 10px;
+}
+
+nav .logo h1 {
+    font-size: 1.1rem;
+    background: linear-gradient(to right, #b927fc 0%, #2c64fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #000000;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 1px;
+    background-color: #ffffff;
+    display: block;
+    margin: 7px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-active {
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.6s;
+    transform: rotate(45deg);
+}
+
+.hamburger-active .line:nth-child(2) {
+    width: 0px;
+}
+
+.hamburger-active .line:nth-child(1),
+.hamburger-active .line:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.hamburger-active .line:nth-child(1) {
+    transform: translateY(12px);
+}
+
+.hamburger-active .line:nth-child(3) {
+    transform: translateY(-5px) rotate(90deg);
+}
+
+.menubar {
+    position: absolute;
+    top: 0;
+    left: -60%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 60%;
+    height: 100vh;
+    padding: 20% 0;
+    background: rgba(89, 131, 83, 0.15);
+    backdrop-filter: blur(13px);
+    transition: all 0.5s ease-in;
+    z-index: 2;
+}
+
+.active {
+    left: 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.menubar ul {
+    padding: 0;
+    list-style: none;
+}
+
+.menubar ul li {
+    margin-bottom: 32px;
+}
+
+.menubar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.menubar ul li a:hover {
+    background-color: #000000;
+}
+
+@media screen and (max-width: 790px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+    }
+}
+
+::-moz-selection {
+    /* Code for Firefox */
+    background: #50fa7b;
+}
+
+::selection {
+    color: #161824;
+    background: #50fa7b;
+}

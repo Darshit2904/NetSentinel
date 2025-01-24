@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="../static/contact.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="../static/logo.png">
+</head>
+
+<body>
+  <nav>
+    <div class="logo-container">
+      <a style="text-decoration: none;" href="/">
+        <div class="logo_inner">
+          <img class="logo" src="../static/logo.png">
+          <div class="logo-text">
+            <h2 class="white-color" id="company-logo"> Netsentinel</h2>
+            <p class="white-color" id="subtitle"> Scan.Detect.Protect</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <ul>
+      <li>
+        <a href="about">About Us</a>
+      </li>
+      <li>
+        <a href="links">Links</a>
+      </li>
+      <li>
+        <a href="contact">Contact Us</a>
+      </li>
+    </ul>
+    <div class="hamburger">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+  </nav>
+  <div class="menubar">
+    <ul>
+      <li>
+        <a href="about">About Us</a>
+      </li>
+      <li>
+        <a href="links">Links</a>
+      </li>
+      <li>
+        <a href="contact">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="form-container">
+      <form class="form" id="contact-form">
+        <span class="heading">Get in touch</span>
+        <input placeholder="Name" type="text" class="input" id="name-field" name="name" required>
+        <input placeholder="Email" id="mail" type="email" class="input" name="email" required>
+        <textarea placeholder="Say Hello" rows="10" cols="30" id="message" name="message" class="textarea"></textarea>
+        <div class="button-container">
+          <button class="send-button" type="submit">Send</button>
+          <div class="reset-button-container">
+            <div id="reset-btn" class="reset-button" type="reset" onclick="reset()">Reset</div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h2 id="popup-message"></h2>
+      <span class="close-popup" onclick="closePopup()">Close</span>
+    </div>
+  </div>
+
+  <script>
+
+    const mobileNav = document.querySelector(".hamburger");
+    const navbar = document.querySelector(".menubar");
+
+    const toggleNav = () => {
+      navbar.classList.toggle("active");
+      mobileNav.classList.toggle("hamburger-active");
+    };
+    mobileNav.addEventListener("click", () => toggleNav());
+
+
+
+    function reset() {
+      document.getElementById('name-field').value = "";
+      document.getElementById('mail').value = "";
+      document.getElementById('message').value = "";
+    }
+
+    function showPopup(message) {
+      document.getElementById('popup-message').textContent = message;
+      document.getElementById('popup').style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = "none";
+    }
+
+    // Handle Form Submission via AJAX
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(this);
+
+      fetch('/send_mail', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === "success") {
+            showPopup("Email sent successfully!");
+          } else {
+            showPopup("Error: " + data.message);
+          }
+        })
+        .catch(error => {
+          showPopup("Error: " + error.message);
+        });
+    });
+
+  </script>
+</body>
+
+</html>

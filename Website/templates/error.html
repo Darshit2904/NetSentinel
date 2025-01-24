@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Limit Exceeded</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Reset some basic elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Font import for a futuristic look */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        body {
+            background: linear-gradient(135deg, #433878, #7E60BF, #1a0033);
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        nav {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo_inner {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px; /* Adjust height as needed */
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            text-align: left;
+        }
+
+        .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu {
+            color: #00FFCC;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .menu:hover {
+            color: #00FF99; /* Hover color */
+        }
+
+        .error-box {
+            background-color: rgba(255, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            max-width: 400px;
+            text-align: center;
+            margin-top: 100px; /* Adjust to move the box down */
+        }
+
+        .error-box h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .error-box p {
+            font-size: 1.2rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            .logo {
+                height: 40px; /* Adjust for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <div class="logo_inner">
+                <img class="logo" src="../static/logo.png" alt="Logo">
+                <div class="logo-text">
+                    <h2 class="white-color" id="company-logo">Netsentinel</h2>
+                    <p class="white-color" id="subtitle">Scan.Detect.Protect</p>
+                </div>
+            </div>
+        </div>
+        <div class="links">
+            <a href="about" class="menu">About Us</a>
+            <a href="links" class="menu">Links</a>
+            <a href="contact" class="menu">Contact</a>
+        </div>
+    </nav>
+
+    <div class="error-box">
+        <h1>Limit Exceeded!</h1>
+        <p>You have exceeded your request limit. Please try again later.</p>
+    </div>
+</body>
+</html>

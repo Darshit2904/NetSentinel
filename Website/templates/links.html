@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../static/logo.png">
+    <link rel="stylesheet" href="../static/links.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <a style="text-decoration: none;" href="/">
+                <div class="logo_inner">
+                    <img class="logo" src="../static/logo.png">
+                    <div class="logo-text">
+                        <h2 class="white-color" id="company-logo"> Netsentinel</h2>
+                        <p class="white-color" id="subtitle"> Scan.Detect.Protect</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <ul>
+            <li>
+                <a href="about">About Us</a>
+            </li>
+            <li>
+                <a href="links">Links</a>
+            </li>
+            <li>
+                <a href="contact">Contact Us</a>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </nav>
+    <div class="menubar">
+        <ul>
+            <li>
+                <a href="about">About Us</a>
+            </li>
+            <li>
+                <a href="links">Links</a>
+            </li>
+            <li>
+                <a href="contact">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main_container">
+        <div class="footer">
+            <h4>NetSentinel</h4>
+            <div class="footercon">
+                <ul class="list1">
+                    <li><a href="/about?function=archives" class="feature">Archives</a></li>
+                    <li><a href="/about?function=blocklists">Blocklist</a></li>
+                    <li><a href="/about?function=carbon">Carbon Footprint</a></li>
+                    <li><a href="/about?function=dns">DNS Data & Records</a></li>
+                    <li><a href="/about?function=dnssec">DNSSEC</a></li>
+                    <li><a href="/about?function=domain">Domain Rank</a></li>
+                </ul>
+                <ul class="list1">
+                    <li><a href="/about?function=firewall">Firewall</a></li>
+                    <li><a href="/about?function=headers">Headers</a></li>
+                    <li><a href="/about?function=hsts" class="feature">HSTS Check</a></li>
+                    <li><a href="/about?function=http">HTTP Header</a></li>
+                    <li><a href="/about?function=linked">Linked Pages</a></li>
+                    <li><a href="/about?function=mail">Mail Services</a></li>
+                </ul>
+                <ul class="list1">
+                    <li><a href="/about?function=ports">Open Ports</a></li>
+                    <li><a href="/about?function=pages">Pages</a></li>
+                    <li><a href="/about?function=redirects">Redirects</a></li>
+                    <li><a href="/about?function=robots">Robots TXT</a></li>
+                    <li><a href="/about?function=screenshot">Screenshot</a></li>
+                    <li><a href="/about?function=txt">Security TXT</a></li>
+                </ul>
+                <ul class="list1">
+                    <li><a href="/about?function=server">Server Location</a></li>
+                    <li><a href="/about?function=social">Social Tags</a></li>
+                    <li><a href="/about?function=ssl">SSL Certificate</a></li>
+                    <li><a href="/about?function=status">Status</a></li>
+                    <li><a href="/about?function=threats">Threats</a></li>
+                    <li><a href="/about?function=cipher">TLS Cipher Suites</a></li>
+                </ul>
+                <ul class="list1">
+                    <li><a href="/about?function=handshake">TLS Handshake Simulation</a></li>
+                    <li><a href="/about?function=security">TLS Security configurations</a></li>
+                    <li><a href="/about?function=traceroute">Traceroute</a></li>
+                    <li><a href="/about?function=tranco">Tranco Rank</a></li>
+                    <li><a href="/about?function=whois">Whois</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>© 2024 NetSentinel. All rights reserved. | Developed by Atharv Ashish Talathi.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mobileNav = document.querySelector(".hamburger");
+        const navbar = document.querySelector(".menubar");
+
+        const toggleNav = () => {
+            navbar.classList.toggle("active");
+            mobileNav.classList.toggle("hamburger-active");
+        };
+        mobileNav.addEventListener("click", () => toggleNav());
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+
+# Allow all bots
+User-agent: *
+Disallow: /private/
+
+# Allow specific bot
+User-agent: Googlebot
+Allow: /
+
+

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset some basic elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Font import for a futuristic look */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        body {
+            background: linear-gradient(135deg, #433878, #7E60BF, #1a0033);
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            padding: 3rem 1rem;
+            margin-top: 2rem;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .footer:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 30px rgba(0, 255, 204, 0.4);
+        }
+
+        .footer h4 {
+            font-size: 2.5rem;
+            color: #00FFCC;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .footercon {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .list1 {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 1rem;
+            flex: 1;
+            min-width: 150px;
+            text-align: left;
+        }
+
+        .list1 li {
+            margin: 0.8rem 0;
+        }
+
+        .list1 a {
+            color: #00FFCC;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .list1 a:hover {
+            color: #00FF99; /* Hover color */
+        }
+
+        .social-icons {
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #00FFCC;
+            font-size: 1.5rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover {
+            color: #00FF99; /* Hover color */
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            font-size: 1rem;
+            color: #777; /* Light gray for copyright text */
+        }
+
+        @media screen and (max-width: 768px) {
+            .footercon {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="footer">
+        <h4>NetSentinel</h4>
+        <div class="footercon">
+            <ul class="list1">
+                <li><a href="#">Archive History</a></li>
+                <li><a href="#">Block List</a></li>
+                <li><a href="#">Carbon Footprint</a></li>
+                <li><a href="#">DNS Server</a></li>
+                <li><a href="#">DNS Records</a></li>
+                <li><a href="#">DNSSEC</a></li>
+            </ul>
+            <ul class="list1">
+                <li><a href="#">Firewall</a></li>
+                <li><a href="#">Whois Lookup</a></li>
+                <li><a href="#">Headers</a></li>
+                <li><a href="#">HSTS</a></li>
+                <li><a href="#">HTTP Security</a></li>
+                <li><a href="#">Linked Pages</a></li>
+            </ul>
+            <ul class="list1">
+                <li><a href="#">Mail Config</a></li>
+                <li><a href="#">Open Ports</a></li>
+                <li><a href="#">Global Rank</a></li>
+                <li><a href="#">Redirects</a></li>
+                <li><a href="#">Robots.txt</a></li>
+                <li><a href="#">Screenshot</a></li>
+            </ul>
+            <ul class="list1">
+                <li><a href="#">Security.txt</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Social Tags</a></li>
+                <li><a href="#">SSL Certificate</a></li>
+                <li><a href="#">Status</a></li>
+            </ul>
+            <ul class="list1">
+                <li><a href="#">Threats</a></li>
+                <li><a href="#">TLS Version</a></li>
+                <li><a href="#">Trace Route</a></li>
+                <li><a href="#">TXT Records</a></li>
+            </ul>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="copyright">
+            <p>© 2024 NetSentinel. All rights reserved. | Developed by Atharv Ashish Talathi.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

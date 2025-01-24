@@ -1,0 +1,6 @@
+# Security Contact Information
+Contact: netsentinelsecure@gmail.com
+Expires: 
+Encryption: 
+Preferred-Languages: en
+Canonical: /security.txt
